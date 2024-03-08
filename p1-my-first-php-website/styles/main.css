@@ -1,0 +1,12 @@
+body {
+    background-color: azure;
+}
+
+.testButton {
+    padding: 20px;
+    min-width: 150px;
+    background-color: yellow;
+    border: solid 5px tomato;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px burlywood;
+}
