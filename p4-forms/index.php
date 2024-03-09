@@ -49,6 +49,14 @@
             ?>
         </tbody>
     </table>
+
+    <!-- EXERCICIO
+        Se a busca nao devolver resultados
+        mostrem uma frase e uma imagem...
+        a informar que nao existem cidades correspondentes a pesquisa
+
+        se existirem cidades mostrem a tabelo como ja esta feito
+    -->
 </body>
 
 </html>
