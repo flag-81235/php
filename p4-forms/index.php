@@ -8,16 +8,22 @@
 </head>
 
 <body>
+
     <?php
-    $searchTerm = isset($_GET["search"]) ? $_GET["search"] : "";
+    $searchTerm = isset($_GET["searchTerm"]) ? $_GET["searchTerm"] : "";
+    ?>
 
-    echo "<h1>Cities found for '$searchTerm'</h1>";
+    <h1>Search Term: <?= $searchTerm ?></h1>
+    <form action="" method="get">
+        <input type="text" placeholder="search" name="searchTerm" value="<?= $searchTerm ?>">
+        <button type="submit">Go</button>
+    </form>
 
+    <?php
     $mysqli = new mysqli("127.0.0.1", "root", "", "world", 3307);
     // DANGER: We should never concatenate directly could lead to SQL INJECTIONS
     // Use parametized queries instead
     $result = $mysqli->query("SELECT * FROM city WHERE Name LIKE '%$searchTerm%'");
-
     ?>
     <table border="1">
         <thead>

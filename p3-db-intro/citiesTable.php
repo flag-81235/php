@@ -14,6 +14,8 @@
     echo "<h1>Cities in $countryCode</h1>";
 
     $mysqli = new mysqli("127.0.0.1", "root", "", "world", 3307);
+    // DANGER: We should never concatenate directly could lead to SQL INJECTIONS
+    // Use parametized queries instead
     $result = $mysqli->query("SELECT * FROM city WHERE countryCode = '$countryCode'");
 
     ?>
