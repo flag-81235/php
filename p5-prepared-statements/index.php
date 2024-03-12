@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
     <?php
     $searchTerm = isset($_GET["searchTerm"]) ? $_GET["searchTerm"] : "";
     ?>
@@ -49,12 +48,16 @@
             <tbody>
                 <?php
                 while ($row = $result->fetch_assoc()) {
+                    $id = $row["ID"];
+                    $name = $row["Name"];
+
                     echo "<tr>";
                     echo "<td>" . $row["ID"] . "</td>";
-                    echo "<td>" . $row["Name"] . "</td>";
+                    echo "<td><a href='cityDetail.php?id=$id'>$name</a></td>";
                     echo "<td>" . $row["CountryCode"] . "</td>";
                     echo "<td>" . $row["District"] . "</td>";
                     echo "<td>" . $row["Population"] . "</td>";
+                    echo "<td><a href='deleteHandler.php?id=$id'>❌</a></td>";
                     echo "</tr>";
                 }
                 ?>
