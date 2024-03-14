@@ -1,0 +1,16 @@
+#pageWrapper {
+    width: 900px;
+    margin: 20px auto 0;
+}
+
+.addCityLink {
+    float: right;
+}
+
+.addCityButton {
+    float: right;
+}
+
+.deleteLink {
+    text-decoration: none !important;
+}
