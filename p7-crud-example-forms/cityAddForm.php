@@ -32,7 +32,7 @@
             </select><br>
             <input type="text" name="district" placeholder="District"><br>
             <input type="number" name="population" placeholder="Population"><br>
-            <button class="addCityButton">Add City</button>
+            <button class="addButton">Add City</button>
         </form>
     </div>
 </body>

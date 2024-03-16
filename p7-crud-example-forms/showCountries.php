@@ -12,32 +12,29 @@
 <body>
     <?php
     $mysqli = new mysqli("localhost", "root", "", "world", 3307);
-    $statement = $mysqli->prepare("SELECT * FROM city ORDER BY ID DESC LIMIT 20");
+    $statement = $mysqli->prepare("SELECT * FROM country");
     $statement->execute();
 
     $result = $statement->get_result();
     ?>
     <div id="pageWrapper">
-        <a href="./cityAddForm.php" class="addLink">Add New City</a>
+        <a href="./countryAddForm.php" class="addLink">Add New Country</a>
         <table>
             <thead>
                 <tr>
-                    <th>City name</th>
                     <th>Country Code</th>
-                    <th>District</th>
-                    <th>Population</th>
-                    <th>Actions</th>
+                    <th>Name</th>
+                    <th>Continent</th>
                 </tr>
             </thead>
-            <tbody id="cityTableBody">
+            <tbody id="countryTableBody">
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <tr>
+                        <td><?= $row['Code'] ?></td>
                         <td><?= $row['Name'] ?></td>
-                        <td><?= $row['CountryCode'] ?></td>
-                        <td><?= $row['District'] ?></td>
-                        <td><?= $row['Population'] ?></td>
-                        <td><a href="./cityEditForm.php?id=<?= $row['ID'] ?>" class="editLink">✏️</a>
-                            <a href="./cityDeleteHandler.php?id=<?= $row['ID'] ?>" class="deleteLink">❌</a>
+                        <td><?= $row['Continent'] ?></td>
+                        <td><a href="#" class="editLink">✏️</a>
+                            <a href="./countryDeleteHandler.php?code=<?= $row['Code'] ?>" class="deleteLink">❌</a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -46,8 +43,8 @@
     </div>
 
     <script>
-        const cityTableBody = document.querySelector("#cityTableBody");
-        cityTableBody.addEventListener("click", function(event) {
+        const countryTableBody = document.querySelector("#countryTableBody");
+        countryTableBody.addEventListener("click", function(event) {
             if (event.target.className !== "deleteLink") {
                 return;
             }
