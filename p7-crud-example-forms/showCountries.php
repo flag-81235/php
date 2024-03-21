@@ -31,7 +31,8 @@
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <tr>
                         <td><?= $row['Code'] ?></td>
-                        <td><?= $row['Name'] ?></td>
+                        <!-- <td><a href="./showCities.php?country=PRT">Portugal</a></td> -->
+                        <td><a href="./showCities.php?country=<?= $row['Code'] ?>"><?= $row['Name'] ?></a></td>
                         <td><?= $row['Continent'] ?></td>
                         <td><a href="#" class="editLink">✏️</a>
                             <a href="./countryDeleteHandler.php?code=<?= $row['Code'] ?>" class="deleteLink">❌</a>

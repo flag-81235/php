@@ -1,0 +1,20 @@
+body {
+    background-color: pink;
+}
+
+a {
+    color: coral;
+    font-size: 18px;
+    line-height: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 2px;
+}
+
+a:hover {
+    border-bottom: solid 2px coral;
+}
+
+.activeLink {
+    border-bottom: solid 2px coral;
+}

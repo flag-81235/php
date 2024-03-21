@@ -11,8 +11,13 @@
 
 <body>
     <?php
+    $countryCode = isset($_GET["country"]) ? $_GET["country"] : "%";
+
     $mysqli = new mysqli("localhost", "root", "", "world", 3307);
-    $statement = $mysqli->prepare("SELECT * FROM city ORDER BY ID DESC LIMIT 20");
+    $statement = $mysqli->prepare(
+        "SELECT * FROM city WHERE CountryCode LIKE ? ORDER BY ID DESC"
+    );
+    $statement->bind_param("s", $countryCode);
     $statement->execute();
 
     $result = $statement->get_result();
